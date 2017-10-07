@@ -1,0 +1,18 @@
+# vim: ft=yaml
+# Defaults for pam
+
+pam:
+  enabled: false
+  module_pkgs:
+    - libpam-modules
+  ldap:
+    enabled: false
+    pkg: libpam-ldap
+    service_pkg: libpam-ldapd
+  google2fa:
+    enabled: false
+    pkg: libpam-google-authenticator
+    ssh: false
+    sudo: false
+    mockup: false
+  services: {}

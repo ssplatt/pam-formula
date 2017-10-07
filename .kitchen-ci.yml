@@ -1,0 +1,28 @@
+# vim: ft=yaml
+---
+driver:
+  name: linode
+
+provisioner:
+  name: salt_solo
+  formula: pam
+  state_top:
+    base:
+      "*":
+        - pam
+
+platforms:
+  - name: debian_jessie
+
+suites:
+  - name: default
+
+  - name: custom
+    provisioner:
+      pillars-from-files:
+        pam.sls: pillar-custom.sls
+      pillars:
+        top.sls:
+          base:
+            "*":
+              - pam

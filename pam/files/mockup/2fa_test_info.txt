@@ -1,0 +1,12 @@
+https://www.google.com/chart?chs=200x200&chld=M|0&cht=qr&chl=otpauth://totp/vagrant@default-bento-debian-82%3Fsecret%3D4KSYHR4GKXH4TNQ4
+Your new secret key is: 4KSYHR4GKXH4TNQ4
+Your verification code is 720893
+Your emergency scratch codes are:
+  14778141
+  96156093
+  55552129
+  89175637
+  76141576
+
+username: mockupuser
+password: testingtesting

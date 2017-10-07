@@ -1,0 +1,16 @@
+{%- from "pam/map.jinja" import pam with context -%}
+#%PAM-1.0
+
+@include common-auth
+@include common-account
+{%- if grains['oscodename'] == 'squeeze' %}
+
+session required pam_permit.so
+session required pam_limits.so
+{%- else %}
+@include common-session-noninteractive
+{%- endif %}
+
+{% if pam.google2fa.enabled and pam.google2fa.sudo -%}
+auth  required  pam_google_authenticator.so
+{%- endif %}

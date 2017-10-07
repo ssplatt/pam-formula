@@ -1,0 +1,7 @@
+{%- for link in chain %}
+  {%- if link.include is defined %}
+@include {{ link.include }}
+  {%- else %}
+{{ link.type }} {{ link.control }} {{ link.module }}{{ ' ' + link.args | join(' ') if link.args is defined else '' }}
+  {%- endif %}
+{%- endfor %}

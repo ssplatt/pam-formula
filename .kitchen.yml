@@ -1,0 +1,29 @@
+# vim: ft=yaml
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: salt_solo
+  formula: pam
+  state_top:
+    base:
+      "*":
+        - pam
+
+platforms:
+  - name: bento/debian-8
+
+suites:
+  - name: default
+
+  - name: custom
+    provisioner:
+      pillars-from-files:
+        pam.sls: pillar-custom.sls
+      pillars:
+        top.sls:
+          base:
+            "*":
+              - pam
+
